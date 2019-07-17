@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import "./Task.css";
 export default function Task(props) {
   const { id, title, description, done } = props.data;
@@ -17,6 +16,3 @@ export default function Task(props) {
     </li>
   );
 }
-Task.propTypes = {
-  tasks: PropTypes.object.isRequired
-};
