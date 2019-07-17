@@ -5,14 +5,24 @@ export default function Task(props) {
   return done ? (
     <li className="task completed">
       {id} - {title} - {done}- {description}
-      <input type="checkbox" name="" id="" />
-      <button>Click</button>
+      <input
+        type="checkbox"
+        name=""
+        id=""
+        onChange={props.update.bind(this, id)}
+      />
+      <button onClick={props.delete.bind(this, id)}>Click</button>
     </li>
   ) : (
     <li className="task pending">
       {id} - {title} - {done}- {description}
-      <input type="checkbox" name="" id="" />
-      <button>Click</button>
+      <input
+        type="checkbox"
+        name=""
+        id=""
+        onChange={props.update.bind(this, id)}
+      />
+      <button onClick={props.delete.bind(this, id)}>Click</button>
     </li>
   );
 }
