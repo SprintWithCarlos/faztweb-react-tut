@@ -1,12 +1,18 @@
 import React, { Component } from "react";
-import data from "./datasample/tasks.json";
+// import data from "./datasample/tasks.json";
 import TasksList from "./components/TasksList/TasksList";
 import NewTask from "./components/Task/NewTask/NewTask.jsx";
+import PostsList from "./components/PostsList/PostsList.jsx";
 
 class App extends Component {
   state = {
-    tasks: data
+    tasks: []
   };
+  async componentDidMount() {
+    const res = await fetch("https://jsonplaceholder.typicode.com/todos");
+    const data = await res.json();
+    this.setState({ tasks: data });
+  }
   addTask = (title, description) => {
     console.log(title, description);
     const newTask = {
@@ -24,7 +30,7 @@ class App extends Component {
   updateTask = id => {
     const newTasks = this.state.tasks.map(task => {
       if (task.id === id) {
-        task.done = !task.done;
+        task.completed = !task.completed;
       }
       return task;
     });
@@ -40,6 +46,7 @@ class App extends Component {
           update={this.updateTask}
         />
         <NewTask addTask={this.addTask} />
+        <PostsList />
       </ul>
     );
   }

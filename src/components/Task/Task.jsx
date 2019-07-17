@@ -1,10 +1,10 @@
 import React from "react";
 import "./Task.css";
 export default function Task(props) {
-  const { id, title, description, done } = props.data;
-  return done ? (
+  const { id, title, description, completed } = props.data;
+  return completed ? (
     <li className="task completed">
-      {id} - {title} - {done}- {description}
+      {id} - {title} - {completed}- {description}
       <input
         type="checkbox"
         name=""
@@ -15,7 +15,7 @@ export default function Task(props) {
     </li>
   ) : (
     <li className="task pending">
-      {id} - {title} - {done}- {description}
+      {id} - {title} - {completed}- {description}
       <input
         type="checkbox"
         name=""
