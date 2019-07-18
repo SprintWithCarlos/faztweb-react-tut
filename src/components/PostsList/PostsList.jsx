@@ -12,7 +12,6 @@ export default class PostsList extends Component {
   }
 
   render() {
-    console.log(this.state.posts);
     return (
       <div>
         {this.state.posts.map(post => {
